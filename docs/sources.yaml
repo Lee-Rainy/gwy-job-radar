@@ -1,0 +1,59 @@
+# 栏目 URL 登记册（与 app/collectors 的 source_id 一致）
+# 探活: python -m app.main doctor --sources
+
+sources:
+  - id: gz_rsj
+    name: 广州市人力资源和社会保障局
+    city: 广州
+    status: live
+    base_url: https://rsj.gz.gov.cn
+    list_sections:
+      - tzgg
+      - gzdt
+    list_path_template: "/zwdt/{section}/index.html"
+    pagination:
+      first: index.html
+      next: "index_{n}.html"
+      max_pages: 12
+    detail_url_contains: "/content/post_"
+    needs_browser_ua: true
+    verified_at: 2026-03-14
+    notes: >
+      列表在 rsj 本站；详情常含报名外链，报名时间与招聘条件以外链落地页为准。
+      采集器 enrich 会跟报名类外链并解析时段。
+
+  - id: gd_gwy
+    name: 广东省公务员考试
+    city: null
+    status: stub
+    base_url: https://www.gd.gov.cn
+    list_pages: []
+    verified_at: null
+    notes: 待填当期省考专题列表 URL
+
+  - id: gd_sydw
+    name: 广东省事业单位公开招聘
+    city: null
+    status: stub
+    base_url: https://www.gd.gov.cn
+    list_pages: []
+    verified_at: null
+    notes: 待填省级事业编统一入口
+
+  - id: dg_official
+    name: 东莞市官方招考
+    city: 东莞
+    status: stub
+    base_url: https://www.dg.gov.cn
+    list_pages: []
+    verified_at: null
+    notes: 待填东莞人社招考栏目
+
+  - id: fs_official
+    name: 佛山市官方招考
+    city: 佛山
+    status: stub
+    base_url: https://www.foshan.gov.cn
+    list_pages: []
+    verified_at: null
+    notes: 待填佛山人社招考栏目

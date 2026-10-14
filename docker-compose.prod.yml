@@ -1,0 +1,9 @@
+# 服务器生产叠加配置：不对外暴露 PostgreSQL 端口
+# 用法: docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+
+services:
+  db:
+    ports: []
+
+  app:
+    restart: unless-stopped
